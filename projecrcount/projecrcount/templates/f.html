@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css" />
+  <title>Gate Navigation</title>
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+    .panel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      padding: 15px;
+      z-index: 999;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      max-width: 250px;
+    }
+    .panel h3 {
+      margin: 0 0 10px;
+    }
+    .panel .gate-item {
+      margin-bottom: 5px;
+    }
+    .panel select, .panel button {
+      margin-top: 10px;
+      width: 100%;
+    }
+    .count-display {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+  <script src="../static/script.js" defer></script>
+</head>
+<body>
+  <div class="panel">
+    <h3>Gate Options</h3>
+
+    <label for="gate-select">Directions To:</label>
+    <select id="gate-select">
+      <option value="">Least Crowded</option>
+      <option value="1">Gate 1</option>
+      <option value="2">Gate 2</option>
+      <option value="3">Gate 3</option>
+    </select>
+
+  
+
+    <div class="gate-list" id="gate-list">
+      <label class="gate-item"><input type="checkbox" value="1"> Show Gate 1 Count</label><br />
+      <label class="gate-item"><input type="checkbox" value="2"> Show Gate 2 Count</label><br />
+      <label class="gate-item"><input type="checkbox" value="3"> Show Gate 3 Count</label>
+    </div>
+
+    <div class="count-display" id="count-display"></div>
+  </div>
+
+  <div id="map"></div>
+</body>
+</html>
